@@ -1,21 +1,13 @@
 {
   "version" : 1,
   "index_patterns" : [
-    # For multiple Sardana system it is better to define
-    # one index pattern per one system. This would avoid
-    # high load and possible crashes of the plugin.
-    # Simply add mutliple dictionaries in the list.
     {
       "es": {
         "default_index": "logstash-*"
       },
       "tail_interval_in_seconds": 10,
       "es_index_time_offset_in_seconds": 0,
-      # Sardana pushes to elastic search always logs in UTC
-      # "local" configuration would use your local timezone
-      # this may affect searches on timestamp.
-      # As a workaround use UTC timezone. 
-      "display_timezone": "Etc/UTC",
+      "display_timezone": "local",
       "display_timestamp_format": "MMM DD HH:mm:ss,SSS",
       "max_buckets": 500,
       "default_time_range_in_days" : 0,
